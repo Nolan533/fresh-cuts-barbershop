@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fresh Cuts Barbershop | Look Sharp</title>
+  <meta name="description" content="Fresh Cuts Barbershop offers clean, professional haircuts. Explore our services and request your appointment.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #080b12;
+      color: #f5f7ff;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    :root {
+      --blue: #38d9ff;
+      --muted: #aab4c8;
+      --panel: #121a27;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 7%;
+      border-bottom: 1px solid #202a3b;
+      position: sticky;
+      top: 0;
+      background: rgba(8, 11, 18, 0.96);
+      z-index: 10;
+    }
+
+    .logo {
+      color: white;
+      font-size: 21px;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--blue);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px 95px;
+      background: radial-gradient(
+        ellipse at top,
+        #142b40 0%,
+        #080b12 70%
+      );
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      letter-spacing: 4px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 8vw, 76px);
+      line-height: 1.08;
+      letter-spacing: -3px;
+      margin: 24px 0;
+    }
+
+    .hero-text {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--blue);
+      color: #080b12;
+      padding: 14px 24px;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 15px;
+      margin-top: 26px;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .button:hover {
+      background: white;
+      transform: translateY(-2px);
+    }
+
+    .section {
+      padding: 65px 20px;
+      text-align: center;
+      scroll-margin-top: 85px;
+    }
+
+    .section-label {
+      color: var(--blue);
+      font-size: 12px;
+      letter-spacing: 3px;
+      font-weight: bold;
+    }
+
+    .section h2 {
+      font-size: 34px;
+      margin: 10px 0 12px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 340px));
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .service {
+      background: linear-gradient(145deg, #151d2c, #0d121d);
+      border: 1px solid #24364d;
+      border-radius: 16px;
+      padding: 28px 22px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .service:hover {
+      transform: translateY(-5px);
+      border-color: var(--blue);
+    }
+
+    .service h3 {
+      color: var(--blue);
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .service p {
+      color: var(--muted);
+    }
+
+    .price {
+      color: white !important;
+      font-size: 30px;
+      font-weight: bold;
+      margin-top: 16px;
+    }
+
+    .booking {
+      background: #0d121d;
+    }
+
+    .booking-form {
+      max-width: 430px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .booking-form label {
+      display: block;
+      margin: 15px 0 6px;
+      font-size: 14px;
+      color: #dce5f4;
+    }
+
+    .booking-form input,
+    .booking-form select {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      border-radius: 8px;
+      border: 1px solid #34445b;
+      background: var(--panel);
+      color: white;
+      font: inherit;
+    }
+
+    .booking-form input:focus,
+    .booking-form select:focus {
+      outline: 2px solid var(--blue);
+      outline-offset: 2px;
+    }
+
+    .booking-form .button {
+      width: 100%;
+    }
+
+    #message {
+      color: var(--blue);
+      margin-top: 20px;
+      text-align: center;
+      overflow-wrap: anywhere;
+    }
+
+    .notice {
+      max-width: 430px;
+      margin: 18px auto 0;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      border-top: 1px solid #202a3b;
+      padding: 25px 15px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        padding: 16px 5%;
+        gap: 12px;
+      }
+
+      .logo {
+        font-size: 17px;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 70px 18px;
+      }
+
+      .hero h1 {
+        font-size: 43px;
+        letter-spacing: -1.5px;
+      }
+
+      .eyebrow {
+        letter-spacing: 2px;
+      }
+
+      .services {
+        grid-template-columns: minmax(0, 340px);
+      }
+
+      .section h2 {
+        font-size: 29px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <a href="#" class="logo">FRESH<span>CUTS.</span></a>
+
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#booking">Book Now</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">YOUR STYLE. YOUR STANDARD.</p>
+      <h1>LOOK SHARP.<br>FEEL DIFFERENT.</h1>
+      <p class="hero-text">
+        Clean cuts. Fresh confidence. Every single time.
+      </p>
+      <a href="#booking" class="button">BOOK YOUR CUT →</a>
+    </section>
+
+    <section class="section" id="services">
+      <p class="section-label">WHAT WE OFFER</p>
+      <h2>Our Services</h2>
+      <p class="section-intro">
+        Simple styles. Quality cuts. Fresh results.
+      </p>
+
+      <div class="services">
+        <article class="service">
+          <h3>Classic Haircut</h3>
+          <p>A clean, professional cut tailored to your style.</p>
+          <p class="price">$25</p>
+        </article>
+
+        <article class="service">
+          <h3>Buzz Cut</h3>
+          <p>A sharp, simple look that's easy to maintain.</p>
+          <p class="price">$15</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section booking" id="booking">
+      <p class="section-label">YOUR NEXT FRESH CUT</p>
+      <h2>Request an Appointment</h2>
+      <p class="section-intro">
+        Choose your service and enter your details.
+      </p>
+
+      <form class="booking-form" id="bookingForm">
+        <label for="customerName">Your name</label>
+        <input
+          type="text"
+          id="customerName"
+          placeholder="Enter your name"
+          maxlength="80"
+          required
+        >
+
+        <label for="customerEmail">Your email</label>
+        <input
+          type="email"
+          id="customerEmail"
+          placeholder="you@example.com"
+          required
+        >
+
+        <label for="service">Choose a service</label>
+        <select id="service" required>
+          <option value="">Select a haircut</option>
+          <option value="Classic Haircut - $25">Classic Haircut — $25</option>
+          <option value="Buzz Cut - $15">Buzz Cut — $15</option>
+        </select>
+
+        <button class="button" type="submit">
+          Request Booking
+        </button>
+      </form>
+
+      <p id="message" role="status" aria-live="polite"></p>
+
+      <p class="notice">
+        Demo only: this form does not send or save appointments.
+        Connect a booking service before using it with real customers.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Fresh Cuts Barbershop. Demo website.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    document.getElementById("bookingForm").addEventListener(
+      "submit",
+      function (event) {
+        event.preventDefault();
+
+        const name =
+          document.getElementById("customerName").value.trim();
+
+        const email =
+          document.getElementById("customerEmail").value.trim();
+
+        const service =
+          document.getElementById("service").value;
+
+        if (!name || !email || !service) {
+          document.getElementById("message").textContent =
+            "Please complete all fields.";
+          return;
+        }
+
+        document.getElementById("message").textContent =
+          "Thanks, " + name + "! Your " + service +
+          " request has been filled out. This is a demo, " +
+          "so no appointment has actually been sent.";
+      }
+    );
+  </script>
+</body>
+</html>
